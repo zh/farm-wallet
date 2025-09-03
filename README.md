@@ -177,4 +177,4 @@ This wallet is open source and welcomes contributions!
 
 ## License
 
-This project is open source and available under standard open source licensing terms.
+This project is open source and available under the [MIT License](LICENSE).
