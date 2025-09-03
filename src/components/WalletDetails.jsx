@@ -5,13 +5,9 @@ import { hexToWIF } from '../utils/wifUtils';
 import '../styles/walletdetails.css';
 
 const WalletDetails = () => {
-  // ALL HOOKS MUST BE CALLED FIRST - BEFORE ANY CONDITIONAL RETURNS
   const [wallet] = useAtom(walletAtom);
   const setNotification = useSetAtom(notificationAtom);
   const [wifPrivateKey, setWifPrivateKey] = useState('Converting...');
-
-  // Utility Functions removed - eToken addresses not used
-
 
   // Convert hex to WIF asynchronously using robust conversion
   useEffect(() => {
@@ -101,7 +97,7 @@ const WalletDetails = () => {
     mnemonic: wallet?.walletInfo?.mnemonic || 'N/A',
     xecAddress: wallet?.walletInfo?.xecAddress || wallet?.walletInfo?.address || 'N/A',
     privateKeyWIF: getWIFFromHex(),
-    hdPath: wallet?.walletInfo?.hdPath || "m/44'/899'/0'/0/0"
+    hdPath: wallet?.walletInfo?.hdPath || "m/44'/1899'/0'/0/0"
   };
 
   return (

@@ -55,10 +55,6 @@ const DisconnectedView = () => {
           <ECashWallet />
         )}
       </div>
-
-      <div className="app-footer">
-        Powered by <a href="https://chronik.be.cash" target="_blank" rel="noopener noreferrer">Chronik</a>
-      </div>
     </div>
   );
 };

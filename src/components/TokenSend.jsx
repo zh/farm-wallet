@@ -73,8 +73,6 @@ const TokenSend = () => {
     }));
   };
 
-  // Removed formatTokenBalance as it's not used in this simplified version
-
   const handleAddressDetected = (scannedData) => {
     if (!walletConnected) {
       setNotification({ type: 'error', message: t('token.walletNotConnected') });

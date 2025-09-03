@@ -10,11 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "script": "cp -f ../../minimal-xec-wallet/dist/minimal-xec-wallet.min.js public/",
-    "test": "playwright test",
-    "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed",
-    "test:debug": "playwright test --debug"
+    "script": "cp -f ../../minimal-xec-wallet/dist/minimal-xec-wallet.min.js public/"
   },
   "dependencies": {
     "@scure/bip39": "^1.5.4",

@@ -159,16 +159,21 @@ const SendXEC = () => {
       setBusy(true);
 
       try {
-        console.log('=== SEND XEC ===');
         console.log(`Sending ${amount} XEC to:`, sanitizedRecipient);
 
         // Convert XEC amount to satoshis (1 XEC = 100 satoshis)
         const amountSats = Math.round(amount * 100);
 
-        console.log(`Sending ${amount} XEC (${amountSats} satoshis)`);
+        // Pre-send validation
+        if (!amountSats || isNaN(amountSats) || amountSats <= 0) {
+          throw new Error(`Invalid amount calculation: ${amountSats} (from ${amount} XEC)`);
+        }
 
-        // Use sendXec method - expects amountSats property
-        const outputs = [{ address: sanitizedRecipient, amountSats }];
+        // Create outputs with correct property name (amountSat, not amountSats)
+        const outputs = [{ address: sanitizedRecipient, amountSat: amountSats }];
+
+        console.log('Broadcasting transaction...');
+
         const txid = await wallet.sendXec(outputs);
 
         console.log('Send successful, txid:', txid);
@@ -194,15 +199,37 @@ const SendXEC = () => {
           })
         });
       } catch (error) {
-        console.error('Failed to send XEC:', error);
+        console.error('=== SEND XEC FAILED ===');
+        console.error('Error details:', error);
+        console.error('Error message:', error.message);
+        console.error('Error stack:', error.stack);
 
         // If error is related to missing inputs, trigger balance refresh
         if (error.message?.toLowerCase().includes('missing inputs') ||
             error.message?.toLowerCase().includes('inputs-missingorspent')) {
+          console.log('Triggering balance refresh due to UTXO-related error');
           setBalanceRefreshTrigger(Date.now());
         }
 
-        setNotification({ type: 'error', message: error.message });
+        // Enhanced error handling with specific debugging
+        let errorMessage = error.message || t('errors.generic');
+
+        if (error.message?.includes('Invalid amount') || error.message?.includes('undefined')) {
+          errorMessage = 'Transaction failed: Invalid amount format. Please check the amount and try again.';
+        } else if (error.message?.includes('browser') || error.message?.includes('compatibility')) {
+          errorMessage = t('errors.browserCompatibility');
+        } else if (error.message?.includes('signing') || error.message?.includes('transaction signing')) {
+          errorMessage = t('errors.signingFailed');
+        } else if (error.message?.includes('mempool') || error.message?.includes('conflict')) {
+          errorMessage = t('errors.mempoolConflict');
+        } else if (error.message?.includes('insufficient') || error.message?.includes('balance')) {
+          errorMessage = 'Insufficient balance for transaction including fees.';
+        }
+
+        setNotification({
+          type: 'error',
+          message: `Send XEC failed: ${errorMessage}`
+        });
       }
     } catch (error) {
       console.error('XEC send validation error:', error);

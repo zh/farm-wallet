@@ -1,32 +1,6 @@
-// Basic mnemonic storage utilities with simple obfuscation
-// NOTE: This provides minimal protection - users should still backup mnemonics securely
+// Basic mnemonic storage utilities
 
 const STORAGE_KEY = 'farm-wallet-mnemonic';
-
-// Simple XOR-based obfuscation (not encryption - just basic protection)
-const obfuscate = (text) => {
-  const key = 'farm-jotai-wallet-2024';
-  let result = '';
-  for (let i = 0; i < text.length; i++) {
-    result += String.fromCharCode(text.charCodeAt(i) ^ key.charCodeAt(i % key.length));
-  }
-  return btoa(result); // Base64 encode the result
-};
-
-const deobfuscate = (obfuscatedText) => {
-  try {
-    const decoded = atob(obfuscatedText); // Base64 decode
-    const key = 'farm-jotai-wallet-2024';
-    let result = '';
-    for (let i = 0; i < decoded.length; i++) {
-      result += String.fromCharCode(decoded.charCodeAt(i) ^ key.charCodeAt(i % key.length));
-    }
-    return result;
-  } catch (error) {
-    console.error('Failed to deobfuscate mnemonic:', error);
-    return '';
-  }
-};
 
 export const saveMnemonic = (mnemonic) => {
   if (typeof window === 'undefined') return;
@@ -37,8 +11,7 @@ export const saveMnemonic = (mnemonic) => {
   }
 
   try {
-    const obfuscated = obfuscate(mnemonic.trim());
-    localStorage.setItem(STORAGE_KEY, obfuscated);
+    localStorage.setItem(STORAGE_KEY, mnemonic.trim());
   } catch (error) {
     console.error('Failed to save mnemonic:', error);
   }
@@ -51,7 +24,7 @@ export const loadMnemonic = () => {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (!stored) return '';
 
-    return deobfuscate(stored);
+    return stored;
   } catch (error) {
     console.error('Failed to load mnemonic:', error);
     return '';

@@ -9,13 +9,11 @@ const Address = ({
   addressFormat = 'long',
   showQR = true,
 }) => {
-  // ALL HOOKS MUST BE CALLED FIRST - BEFORE ANY CONDITIONAL RETURNS
   const { t } = useTranslation();
   const setNotification = useSetAtom(notificationAtom);
   const [walletConnected] = useAtom(walletConnectedAtom);
   const [wallet] = useAtom(walletAtom);
 
-  // CONDITIONAL RENDERING MOVED AFTER ALL HOOKS
   if (!walletConnected || !wallet) {
     return null;
   }

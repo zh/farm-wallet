@@ -52,10 +52,10 @@ const TokenBalance = () => {
     <div className="balance-display">
       {error && <p className="balance-error">{t('common.error')}: {error}</p>}
 
-      {/* Loading state */}
+      {/* Loading state - maintain same structure as loaded state */}
       {loading && (
         <div className="balance-main">
-          <div className="balance-amount">{t('common.loading')}</div>
+          <div className="balance-amount">Loading...</div>
         </div>
       )}
 

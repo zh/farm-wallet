@@ -36,7 +36,7 @@ const FundPage = () => {
           <div className="xec-receive-container">
             {/* XEC Balance */}
             <div className="xec-balance-display">
-              <Balance showValue={true} />
+              <Balance showValue={true} showSecondary={false} />
             </div>
 
             {/* XEC Address with QR */}

@@ -73,7 +73,7 @@ const ECashWallet = () => {
 
     setSavedMnemonic(editableMnemonic.trim());
     setErrorMessage('');
-    setSuccessMessage('✅ Mnemonic saved successfully to local storage!');
+    setSuccessMessage('Mnemonic saved successfully to local storage!');
 
     // Clear success message after 3 seconds
     setTimeout(() => {

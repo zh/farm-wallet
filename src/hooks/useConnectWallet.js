@@ -79,10 +79,10 @@ const useConnectWallet = () => {
     setSavedMnemonic(''); // This will clear the localStorage via the utility
 
     // Clear any other wallet-related localStorage data but preserve user preferences
-    const keysToPreserve = ['ecash-derivation-mode', 'ecash-wallet-theme', 'ecash-wallet-mnemonic'];
+    const keysToPreserve = ['farm-wallet-language', 'farm-wallet-theme', 'farm-wallet-mnemonic'];
     const allKeys = Object.keys(localStorage);
     allKeys.forEach(key => {
-      if (key.startsWith('ecash-') && !keysToPreserve.includes(key)) {
+      if (key.startsWith('farm-wallet-') && !keysToPreserve.includes(key)) {
         localStorage.removeItem(key);
       }
     });
