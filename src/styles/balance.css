@@ -1,0 +1,198 @@
+.balance-container {
+  text-align: center;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  margin: 16px 0;
+}
+
+.balance-display {
+  text-align: center;
+  padding: 16px;
+}
+
+.balance-error {
+  color: var(--accent-danger);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.balance-main {
+  margin-bottom: 8px;
+}
+
+.balance-amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.balance-secondary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+.balance-sats,
+.balance-usd {
+  color: var(--text-secondary);
+}
+
+.balance-separator {
+  color: var(--text-tertiary);
+}
+
+/* Legacy classes for backward compatibility */
+.balance {
+  margin: 8px 0;
+  font-size: 16px;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.balance strong {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.balance-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.balance-refresh-button {
+  background: var(--accent-primary);
+  border: none;
+  border-radius: 6px;
+  color: var(--text-inverse);
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.balance-refresh-button:hover {
+  background: var(--accent-primary-hover);
+}
+
+.balance-refresh-button:disabled {
+  background: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .balance-amount {
+    font-size: 24px;
+  }
+  
+  .balance-secondary {
+    font-size: 13px;
+    gap: 6px;
+  }
+  
+  .balance-refresh-button {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+}
+
+/* Address display component styles */
+.address-display {
+  text-align: center;
+  margin: 16px 0;
+  padding: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+}
+
+.address-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.address-value {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: var(--text-primary);
+  padding: 4px 8px;
+  background: var(--input-bg);
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.address-value.clickable {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.address-value.clickable:hover {
+  background: var(--input-focus-bg);
+}
+
+.copy-indicator {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-success);
+  color: var(--text-inverse);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: sans-serif;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .address-display {
+    margin: 12px 0;
+    padding: 10px;
+  }
+  
+  .address-value {
+    font-size: 13px;
+  }
+}
+
+/* Balance breakdown styles */
+.balance-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 8px;
+  padding: 8px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  border: 1px solid var(--border-primary);
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.breakdown-item span {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .balance-breakdown {
+    font-size: 10px;
+    padding: 6px;
+    gap: 1px;
+  }
+}

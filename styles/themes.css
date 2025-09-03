@@ -1,0 +1,274 @@
+/* CSS Variables Theme System */
+
+/* Light Theme (Default) */
+:root {
+  /* Primary Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --bg-overlay: rgba(0, 0, 0, 0.1);
+  
+  /* Text Colors */
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-tertiary: #868e96;
+  --text-inverse: #ffffff;
+  
+  /* Border Colors */
+  --border-primary: #dee2e6;
+  --border-secondary: #ced4da;
+  --border-focus: #646cff;
+  
+  /* Accent Colors (consistent across themes) */
+  --accent-primary: #646cff;
+  --accent-primary-hover: #535bf2;
+  --accent-danger: #f44336;
+  --accent-danger-hover: #da190b;
+  --accent-danger-active: #c62828;
+  --accent-success: #4caf50;
+  --accent-success-hover: #45a049;
+  --accent-warning: #ffc107;
+  --accent-info: #2196f3;
+  
+  /* Message Box Light/Dark Colors */
+  --success-light: #d4edda;
+  --success-dark: #155724;
+  --warning-light: #fff3cd;
+  --warning-dark: #856404;
+  --error-light: #f8d7da;
+  --error-dark: #721c24;
+  --info-light: #d1ecf1;
+  --info-dark: #0c5460;
+  
+  /* Component Specific */
+  --button-bg: var(--bg-tertiary);
+  --button-border: var(--border-primary);
+  --button-text: var(--text-primary);
+  --button-hover-bg: var(--bg-secondary);
+  
+  --input-bg: #ffffff;
+  --input-border: var(--border-primary);
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-tertiary);
+  --input-focus-bg: #ffffff;
+  --input-disabled-bg: var(--bg-tertiary);
+  --input-disabled-text: var(--text-tertiary);
+  
+  --card-bg: #ffffff;
+  --card-border: var(--border-primary);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  
+  /* Navigation */
+  --nav-bg: #e9ecef;
+  --nav-border: var(--border-primary);
+  --nav-text: #000000;
+  --nav-text-active: var(--accent-primary);
+  --nav-text-hover: #495057;
+  
+  /* QR Code */
+  --qr-bg: #ffffff;
+  --qr-border: var(--border-primary);
+  
+  /* Notification */
+  --notification-success-bg: #d4edda;
+  --notification-success-border: #c3e6cb;
+  --notification-success-text: #155724;
+  --notification-error-bg: #f8d7da;
+  --notification-error-border: #f5c6cb;
+  --notification-error-text: #721c24;
+  --notification-warning-bg: #fff3cd;
+  --notification-warning-border: #ffeaa7;
+  --notification-warning-text: #856404;
+  --notification-info-bg: #d1ecf1;
+  --notification-info-border: #bee5eb;
+  --notification-info-text: #0c5460;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  /* Primary Colors */
+  --bg-primary: #000000;
+  --bg-secondary: rgba(255, 255, 255, 0.02);
+  --bg-tertiary: rgba(255, 255, 255, 0.05);
+  --bg-overlay: rgba(255, 255, 255, 0.1);
+  
+  /* Text Colors */
+  --text-primary: rgba(255, 255, 255, 0.87);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text-inverse: #ffffff;
+  
+  /* Border Colors */
+  --border-primary: #333333;
+  --border-secondary: #444444;
+  --border-focus: #646cff;
+  
+  /* Component Specific */
+  --button-bg: rgba(255, 255, 255, 0.05);
+  --button-border: #555555;
+  --button-text: var(--text-primary);
+  --button-hover-bg: rgba(255, 255, 255, 0.1);
+  
+  --input-bg: rgba(0, 0, 0, 0.3);
+  --input-border: #444444;
+  --input-text: var(--text-primary);
+  --input-placeholder: var(--text-tertiary);
+  --input-focus-bg: rgba(0, 0, 0, 0.4);
+  --input-disabled-bg: rgba(0, 0, 0, 0.1);
+  --input-disabled-text: var(--text-tertiary);
+  
+  --card-bg: var(--bg-secondary);
+  --card-border: var(--border-primary);
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  
+  /* Navigation */
+  --nav-bg: var(--bg-secondary);
+  --nav-border: var(--border-primary);
+  --nav-text: var(--text-primary);
+  --nav-text-active: var(--accent-primary);
+  --nav-text-hover: var(--text-secondary);
+  
+  /* QR Code */
+  --qr-bg: var(--bg-secondary);
+  --qr-border: var(--border-primary);
+  
+  /* Notification (darker variants) */
+  --notification-success-bg: rgba(76, 175, 80, 0.2);
+  --notification-success-border: #4caf50;
+  --notification-success-text: #81c784;
+  --notification-error-bg: rgba(244, 67, 54, 0.2);
+  --notification-error-border: #f44336;
+  --notification-error-text: #ef5350;
+  --notification-warning-bg: rgba(255, 193, 7, 0.2);
+  --notification-warning-border: #ffc107;
+  --notification-warning-text: #ffb74d;
+  --notification-info-bg: rgba(33, 150, 243, 0.2);
+  --notification-info-border: #2196f3;
+  --notification-info-text: #64b5f6;
+  
+  /* Message Box Colors (Info, Warning, Success, Error) */
+  --bg-info: rgba(33, 150, 243, 0.15);
+  --border-info: rgba(33, 150, 243, 0.3);
+  --text-info: #90caf9;
+  
+  --bg-warning: rgba(255, 193, 7, 0.15);
+  --border-warning: rgba(255, 193, 7, 0.3);
+  --text-warning: #ffcc02;
+  
+  --bg-success: rgba(76, 175, 80, 0.15);
+  --border-success: rgba(76, 175, 80, 0.3);
+  --text-success: #a5d6a7;
+  
+  --bg-error: rgba(244, 67, 54, 0.15);
+  --border-error: rgba(244, 67, 54, 0.3);
+  --text-error: #ef9a9a;
+  
+  /* Message Box Light/Dark Colors (Dark Theme Override) */
+  --success-light: var(--bg-success);
+  --success-dark: var(--text-success);
+  --warning-light: var(--bg-warning);
+  --warning-dark: var(--text-warning);
+  --error-light: var(--bg-error);
+  --error-dark: var(--text-error);
+  --info-light: var(--bg-info);
+  --info-dark: var(--text-info);
+}
+
+/* Theme Transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --border-primary: #000000;
+    --text-secondary: #000000;
+  }
+  
+  [data-theme="dark"] {
+    --border-primary: #ffffff;
+    --text-secondary: #ffffff;
+  }
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  transition: all 0.2s ease;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  background: var(--button-hover-bg);
+  color: var(--text-primary);
+  border-color: var(--border-secondary);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(15deg);
+}
+
+/* Compact variant for TopBar */
+.theme-toggle-compact {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border: none;
+  background: none;
+}
+
+.theme-toggle-compact svg {
+  width: 18px;
+  height: 18px;
+}
+
+.theme-toggle-compact:hover {
+  background: var(--bg-overlay);
+  border-radius: 4px;
+}
+
+/* Mobile touch target optimization */
+@media (max-width: 600px) {
+  .theme-toggle {
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+  }
+  
+  .theme-toggle-compact {
+    min-width: 36px;
+    min-height: 36px;
+    width: 36px;
+    height: 36px;
+  }
+}

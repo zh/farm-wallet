@@ -1,0 +1,313 @@
+.token-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px;
+  margin: 8px 0;
+  border: 1px solid var(--border-primary, #333);
+  border-radius: 12px;
+  background: var(--bg-secondary, rgba(255, 255, 255, 0.05));
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.token-card:hover {
+  background: var(--bg-tertiary, rgba(255, 255, 255, 0.08));
+  border-color: var(--accent-primary, #00d2ff);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 210, 255, 0.2);
+}
+
+.token-icon,
+.token-icon-placeholder {
+  width: 48px;
+  height: 48px;
+  margin-right: 16px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.token-icon-placeholder {
+  background: var(--bg-overlay, #444);
+  border: 1px solid var(--border-secondary, #555);
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+  font-size: 24px;
+}
+
+.token-details {
+  flex: 1;
+  text-align: left;
+  min-width: 0;
+}
+
+.token-card-name,
+.token-card-ticker,
+.token-card-type,
+.token-card-amount {
+  margin: 4px 0;
+  font-size: 14px;
+  color: var(--text-primary, #ffffff);
+  line-height: 1.4;
+}
+
+.token-card-ticker {
+  font-weight: 600;
+  color: var(--accent-primary, #00d2ff);
+  font-size: 16px;
+}
+
+.token-card-type {
+  font-size: 12px;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.token-card-amount {
+  font-family: 'Courier New', monospace;
+  color: var(--accent-success, #00ff88);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Zoomed view styles */
+.token-card.zoomed {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg-secondary, rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--border-primary, #333);
+  border-radius: 12px;
+  position: relative;
+  cursor: default;
+}
+
+.token-card.zoomed:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border-primary, #333);
+}
+
+.token-icon.zoomed-icon,
+.token-icon-placeholder.zoomed-icon {
+  width: 80px;
+  height: 80px;
+  margin: 20px 0;
+  margin-right: 0;
+  font-size: 32px;
+}
+
+.token-details.zoomed-details {
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  background: var(--bg-tertiary, rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--border-secondary, #555);
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.token-details.zoomed-details > div {
+  margin: 12px 0;
+  font-size: 14px;
+  color: var(--text-primary, #ffffff);
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.token-details.zoomed-details strong {
+  color: var(--text-secondary, rgba(255, 255, 255, 0.7));
+  font-weight: 500;
+  margin-right: 12px;
+  min-width: 80px;
+  text-align: left;
+}
+
+.token-name,
+.token-ticker,
+.token-type,
+.token-amount {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.token-ticker {
+  color: var(--accent-primary, #00d2ff);
+  font-weight: 600;
+}
+
+.token-type {
+  color: var(--accent-warning, #ffaa00);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.token-amount {
+  color: var(--accent-success, #00ff88);
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+/* Token ID display - responsive */
+.token-id-long {
+  display: block;
+}
+
+.token-id-short {
+  display: none;
+}
+
+.back-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(244, 67, 54, 0.2);
+  border: 1px solid var(--accent-danger, #ff4444);
+  color: var(--accent-danger, #ff4444);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background: rgba(244, 67, 54, 0.3);
+  border-color: var(--accent-danger-hover, #ff6666);
+  transform: translateY(-1px);
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .token-card {
+    padding: 12px;
+    margin: 6px 8px;
+  }
+
+  .token-icon,
+  .token-icon-placeholder {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+    font-size: 20px;
+  }
+
+  .token-card-name,
+  .token-card-ticker,
+  .token-card-type,
+  .token-card-decimals,
+  .token-card-amount {
+    font-size: 13px;
+  }
+
+  .token-card-ticker {
+    font-size: 15px;
+  }
+
+  /* Improved zoomed mobile layout */
+  .token-card.zoomed {
+    padding: 16px 12px;
+    margin: 8px auto;
+    width: calc(100% - 16px);
+    max-width: 100%;
+  }
+
+  .token-icon.zoomed-icon,
+  .token-icon-placeholder.zoomed-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+    margin: 16px 0;
+  }
+
+  .token-details.zoomed-details {
+    padding: 16px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .token-details.zoomed-details > div {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px 0;
+  }
+
+  .token-details.zoomed-details strong {
+    margin-bottom: 4px;
+    min-width: unset;
+    font-size: 13px;
+  }
+
+  /* Switch to short format for mobile devices */
+  .token-id-long {
+    display: none;
+  }
+
+  .token-id-short {
+    display: block;
+  }
+
+  .back-button {
+    top: 12px;
+    right: 12px;
+    padding: 8px 12px;
+    font-size: 13px;
+    z-index: 10;
+  }
+}
+
+/* Very small screens optimization */
+@media (max-width: 400px) {
+  .token-card.zoomed {
+    padding: 12px 8px;
+    margin: 4px auto;
+    width: calc(100% - 8px);
+  }
+
+  .token-details.zoomed-details {
+    padding: 12px;
+  }
+
+  .back-button {
+    top: 8px;
+    right: 8px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .token-icon.zoomed-icon,
+  .token-icon-placeholder.zoomed-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    margin: 12px 0;
+  }
+}
+
+/* Dark theme specific overrides */
+@media (prefers-color-scheme: dark) {
+  .token-card {
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .token-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .token-details.zoomed-details {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}

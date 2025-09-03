@@ -1,0 +1,112 @@
+.wallet-container {
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+/* Only add styling when connected and showing wallet info */
+.wallet-container.connected {
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid #333;
+  border-radius: 8px;
+}
+
+/* When disconnected, minimal styling for connect button */
+.wallet-container:not(.connected) {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.wallet-button {
+  display: block;
+  margin: 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  transition: background-color 0.2s ease;
+  min-height: 44px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.wallet-button.connect {
+  background: #646cff;
+  margin: 12px auto;
+  max-width: 200px;
+}
+
+.wallet-button.connect:hover {
+  background: #535bf2;
+}
+
+.wallet-button.connect:disabled {
+  background: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.wallet-button.disconnect {
+  background: #ff6b6b;
+  margin: 12px auto;
+  max-width: 200px;
+}
+
+.wallet-button.disconnect:hover {
+  background: #ff5252;
+}
+
+.wallet-button.disconnect:disabled {
+  background: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.wallet-button.optimize {
+  background: #ff9800;
+}
+
+.wallet-button.optimize:hover {
+  background: #f57c00;
+}
+
+.wallet-button.optimize:disabled {
+  background: #444;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.wallet-info {
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.wallet-info p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.wallet-info strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.toggle-details-button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  background: #646cff;
+  font-size: 12px;
+}
+
+.toggle-details-button:hover {
+  background: #535bf2;
+}
+
+.small.connecting-info {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+}

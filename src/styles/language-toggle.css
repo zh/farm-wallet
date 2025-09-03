@@ -1,0 +1,33 @@
+.language-toggle {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.language-button {
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid var(--border-primary);
+  background: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.language-button:hover {
+  background: var(--button-hover-bg);
+  color: var(--text-primary);
+}
+
+.language-button.active {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border-color: var(--accent-primary);
+}
+
+.language-button:focus {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 1px;
+}

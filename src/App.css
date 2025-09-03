@@ -1,0 +1,33 @@
+/* Main app styles - extends from ecash-wallet */
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  background: var(--color-background, #ffffff);
+  color: var(--color-text, #333333);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Additional styles for token-focused UI */
+.balance-token-name {
+  font-size: 12px;
+  color: var(--color-text-secondary, #666);
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+.token-info {
+  font-size: 11px;
+  color: var(--color-text-secondary, #666);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .balance-token-name {
+    font-size: 11px;
+  }
+  
+  .token-info {
+    font-size: 10px;
+  }
+}

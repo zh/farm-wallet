@@ -1,0 +1,418 @@
+/* SendXEC and SendTokens Component Styles */
+select {
+  margin: 10px 0;
+}
+
+.sendxec-container,
+.send-tokens-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.send-tokens-container {
+  /* Inherit all sendxec styles for consistency */
+}
+
+.sendxec-container h2,
+.send-tokens-container h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Form styles */
+.send-group,
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.form-input-group {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.form-input {
+  flex: 1;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  min-height: 20px;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  background: var(--input-focus-bg);
+}
+
+.form-input:disabled {
+  background: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
+.form-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.scan-button {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.scan-button:hover {
+  background: var(--accent-primary-hover);
+}
+
+.scan-button:disabled {
+  background: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
+.unit-select {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 80px;
+  min-height: 20px;
+  box-sizing: border-box;
+}
+
+.unit-select:hover {
+  background: var(--accent-primary-hover);
+}
+
+.unit-select:disabled {
+  background: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
+.max-button {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  min-width: 60px;
+}
+
+.max-button:hover {
+  background: var(--accent-primary-hover);
+}
+
+.max-button:disabled {
+  background: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
+.error-text {
+  font-size: 12px;
+  color: var(--accent-danger);
+  margin-top: 4px;
+}
+
+.balance-info {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.send-actions,
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.send-button {
+  background: var(--accent-success);
+  color: var(--text-inverse);
+  min-height: 48px;
+  min-width: 120px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  padding: 12px 24px;
+}
+
+.send-button:hover {
+  background: var(--accent-success-hover);
+}
+
+.send-button:disabled {
+  background: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
+.qr-scanner-modal {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+}
+
+.close-scanner-button {
+  background: var(--accent-danger);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 12px;
+}
+
+.close-scanner-button:hover {
+  background: var(--accent-danger-hover);
+}
+
+.qr-scanner-error {
+  text-align: center;
+  padding: 16px;
+}
+
+.retry-button {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.retry-button:hover {
+  background: var(--accent-primary-hover);
+}
+
+.scanner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Selected token readonly display */
+.selected-token-readonly {
+  background: var(--input-disabled-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-secondary);
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  min-height: 20px;
+  box-sizing: border-box;
+}
+
+/* Strategy Selection Styles */
+.strategy-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary, #333);
+  font-size: 14px;
+}
+
+.strategy-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-primary, #e1e5e9);
+  border-radius: 6px;
+  background: var(--input-bg, #f8f9fa);
+  color: var(--text-primary, #333);
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.strategy-select:focus {
+  outline: none;
+  border-color: var(--accent-primary, #0074d9);
+  background: var(--input-focus-bg);
+}
+
+.strategy-select:disabled {
+  background: var(--input-disabled-bg);
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
+.strategy-description {
+  font-size: 12px;
+  color: var(--text-info, var(--text-secondary, #666));
+  line-height: 1.4;
+  background: var(--bg-info, #e8f4fd);
+  border: 1px solid var(--border-info, #bee5eb);
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin-top: 5px;
+}
+
+.strategy-description p {
+  margin: 0;
+}
+
+/* Mobile responsive design */
+@media (max-width: 600px) {
+  .sendxec-container,
+  .send-tokens-container {
+    padding: 16px 12px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .sendxec-container h2,
+  .send-tokens-container h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .send-group,
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  .form-input-group {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .form-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 14px 12px;
+  }
+
+  .scan-button {
+    width: auto;
+    min-width: 60px;
+    padding: 14px 12px;
+    font-size: 13px;
+  }
+
+  .unit-select {
+    padding: 14px 8px;
+    font-size: 14px;
+    min-width: 70px;
+  }
+
+  .send-actions,
+  .form-actions {
+    margin-top: 16px;
+    padding: 0 8px;
+  }
+
+  .max-button {
+    width: auto;
+    min-width: 50px;
+    padding: 14px 12px;
+    font-size: 13px;
+  }
+
+  .send-button {
+    width: 100%;
+    max-width: 280px;
+    min-height: 50px;
+    font-size: 16px;
+    padding: 14px 24px;
+  }
+
+  .balance-info {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 13px;
+  }
+
+  .error-text {
+    text-align: center;
+    margin-top: 6px;
+  }
+
+  .strategy-description {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .sendxec-container,
+  .send-tokens-container {
+    padding: 12px 8px;
+  }
+
+  .form-input-group {
+    gap: 6px;
+  }
+
+  .scan-button {
+    min-width: 50px;
+    padding: 14px 8px;
+    font-size: 12px;
+  }
+
+  .unit-select {
+    min-width: 65px;
+    padding: 14px 6px;
+  }
+}
+
+/* Additional breakpoint for medium screens */
+@media (max-width: 768px) and (min-width: 601px) {
+  .sendxec-container,
+  .send-tokens-container {
+    padding: 16px;
+    max-width: 90%;
+  }
+}

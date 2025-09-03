@@ -1,0 +1,112 @@
+/* Simple notification system - optimized for performance */
+
+.notification {
+  position: fixed;
+  top: 80px; /* Below header */
+  left: 16px;
+  right: 16px;
+  z-index: 1000;
+  
+  /* Basic styling */
+  padding: 12px 16px;
+  border-radius: 6px;
+  border: 1px solid;
+  font-size: 14px;
+  line-height: 1.4;
+  
+  /* Simple flexbox for content */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  
+  /* Minimal transition for smooth appearance */
+  transition: opacity 0.2s ease;
+}
+
+/* Success notification */
+.notification-success {
+  background: var(--notification-success-bg);
+  border-color: var(--notification-success-border);
+  color: var(--notification-success-text);
+}
+
+/* Error notification */
+.notification-error {
+  background: var(--notification-error-bg);
+  border-color: var(--notification-error-border);
+  color: var(--notification-error-text);
+}
+
+/* Warning notification */
+.notification-warning {
+  background: var(--notification-warning-bg);
+  border-color: var(--notification-warning-border);
+  color: var(--notification-warning-text);
+}
+
+/* Info notification */
+.notification-info {
+  background: var(--notification-info-bg);
+  border-color: var(--notification-info-border);
+  color: var(--notification-info-text);
+}
+
+/* Message content */
+.notification-message {
+  flex: 1;
+  margin: 0;
+}
+
+/* Close button */
+.notification-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+  min-width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.notification-close:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme hover adjustment */
+[data-theme="dark"] .notification-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .notification {
+    left: 12px;
+    right: 12px;
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+  
+  .notification-close {
+    font-size: 16px;
+    min-width: 20px;
+    height: 20px;
+  }
+}
+
+/* Ensure notification appears above everything */
+.notification {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .notification {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}

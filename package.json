@@ -1,0 +1,53 @@
+{
+  "name": "farm-wallet",
+  "description": "Simple single-token eCash wallet with internationalization",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run script && vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "preview": "vite preview",
+    "script": "cp -f ../../minimal-xec-wallet/dist/minimal-xec-wallet.min.js public/",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug"
+  },
+  "dependencies": {
+    "@scure/bip39": "^1.5.4",
+    "@yudiel/react-qr-scanner": "^2.0.8",
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "ecash-lib": "^4.3.2",
+    "ecashaddrjs": "^2.0.0",
+    "i18next": "^23.15.1",
+    "i18next-browser-languagedetector": "^7.2.1",
+    "jotai": "^2.11.0",
+    "prop-types": "^15.8.1",
+    "qrcode.react": "^4.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-i18next": "^13.5.0",
+    "react-router-dom": "^7.7.1",
+    "stream-browserify": "^3.0.0",
+    "url": "^0.11.0",
+    "util": "^0.12.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@playwright/test": "^1.55.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "vite": "^6.0.5"
+  }
+}

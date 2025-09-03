@@ -1,0 +1,126 @@
+.token-icon,
+.token-icon-placeholder {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.token-icon {
+  /* Base styles - size and other properties handled by inline styles */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.token-icon:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.token-icon-placeholder {
+  background: linear-gradient(135deg, var(--bg-overlay, #444) 0%, var(--bg-tertiary, #555) 100%);
+  border: 2px solid var(--border-secondary, #666);
+  color: var(--text-secondary, rgba(255, 255, 255, 0.6));
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.token-icon-placeholder:hover {
+  background: linear-gradient(135deg, var(--bg-tertiary, #555) 0%, var(--border-secondary, #666) 100%);
+  transform: scale(1.05);
+}
+
+/* Zoomed icon styles */
+.token-icon.zoomed-icon,
+.token-icon-placeholder.zoomed-icon {
+  margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.token-icon.zoomed-icon:hover,
+.token-icon-placeholder.zoomed-icon:hover {
+  transform: scale(1.02);
+}
+
+/* Loading state */
+.token-icon.loading-icon {
+  opacity: 0.7;
+  animation: iconPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+/* Protocol-specific icon styling */
+.token-icon[data-protocol="SLP"] {
+  border-color: rgba(0, 210, 255, 0.3);
+}
+
+.token-icon[data-protocol="ALP"] {
+  border-color: rgba(255, 170, 0, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .token-icon,
+  .token-icon-placeholder {
+    border-width: 1px;
+  }
+
+  .token-icon.zoomed-icon,
+  .token-icon-placeholder.zoomed-icon {
+    margin: 16px 0;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .token-icon,
+  .token-icon-placeholder {
+    border-width: 3px;
+    border-color: currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .token-icon,
+  .token-icon-placeholder {
+    transition: none;
+  }
+
+  .token-icon:hover,
+  .token-icon-placeholder:hover {
+    transform: none;
+  }
+
+  .loading-icon {
+    animation: none;
+  }
+}
+
+/* Dark theme enhancements */
+@media (prefers-color-scheme: dark) {
+  .token-icon {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .token-icon:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  }
+
+  .token-icon.zoomed-icon {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  }
+}

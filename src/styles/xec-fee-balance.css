@@ -1,0 +1,86 @@
+.xec-fee-balance {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 8px 0;
+}
+
+.fee-balance-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.fee-balance-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.fee-balance-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fee-balance-amount {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.fee-balance-amount.loading {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.fee-balance-amount.warning {
+  color: var(--accent-warning);
+}
+
+.fee-balance-amount.critical {
+  color: var(--accent-danger);
+}
+
+.fee-balance-error {
+  font-size: 12px;
+  color: var(--accent-danger);
+  font-weight: 500;
+}
+
+.fee-warning {
+  font-size: 11px;
+  color: var(--color-warning, #f39c12);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.fee-warning.critical {
+  color: var(--color-error, #e74c3c);
+  font-weight: 600;
+}
+
+.fee-balance-breakdown {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--color-border-light, #eee);
+  font-size: 10px;
+  color: var(--color-text-secondary, #666);
+}
+
+.breakdown-item {
+  margin-bottom: 2px;
+}
+
+.breakdown-total {
+  margin-top: 4px;
+  padding-top: 2px;
+  border-top: 1px solid var(--color-border-light, #eee);
+  font-weight: 600;
+  color: var(--color-text, #333);
+}
