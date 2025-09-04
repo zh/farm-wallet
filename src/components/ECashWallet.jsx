@@ -83,12 +83,13 @@ const ECashWallet = () => {
   };
 
   const handleResetMnemonic = () => {
-    clearWalletData();
-    setEditableMnemonic('');
-    setSuccessMessage('');
-    setErrorMessage('');
-    // Always expand mnemonic section on reset
-    setMnemonicCollapsed(false);
+    if (window.confirm(t('wallet.resetConfirm'))) {
+      clearWalletData();
+      setEditableMnemonic('');
+      setSuccessMessage('');
+      setErrorMessage('');
+      setMnemonicCollapsed(false);
+    }
   };
 
   const toggleMnemonicCollapsed = () => {

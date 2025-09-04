@@ -32,6 +32,7 @@
     "checkFile": "Please check that minimal-xec-wallet.min.js is available in the public folder.",
     "loadingLibrary": "Loading eCash wallet library...",
     "disconnectConfirm": "Are you sure you want to disconnect the wallet?",
+    "resetConfirm": "Reset wallet? This deletes all data.",
     "address": "Address",
     "balance": "Balance",
     "clickQrToCopy": "Click QR to copy address",
