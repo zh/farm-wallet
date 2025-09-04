@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
-import { walletConnectedAtom, savedMnemonicAtom, mnemonicSetterAtom } from '../atoms';
+import { walletConnectedAtom, savedMnemonicAtom, mnemonicSetterAtom, mnemonicCollapsedAtom } from '../atoms';
 import { validateMnemonic, generateMnemonic } from '@scure/bip39';
 import { wordlist } from '@scure/bip39/wordlists/english';
 import { useConnectWallet } from '../hooks';
@@ -12,6 +12,7 @@ const ECashWallet = () => {
   const [walletConnected] = useAtom(walletConnectedAtom);
   const [savedMnemonic] = useAtom(savedMnemonicAtom);
   const [, setSavedMnemonic] = useAtom(mnemonicSetterAtom);
+  const [mnemonicCollapsed, setMnemonicCollapsed] = useAtom(mnemonicCollapsedAtom);
 
   const { importWallet, clearWalletData } = useConnectWallet();
 
@@ -86,6 +87,12 @@ const ECashWallet = () => {
     setEditableMnemonic('');
     setSuccessMessage('');
     setErrorMessage('');
+    // Always expand mnemonic section on reset
+    setMnemonicCollapsed(false);
+  };
+
+  const toggleMnemonicCollapsed = () => {
+    setMnemonicCollapsed(!mnemonicCollapsed);
   };
 
   // Initialize editable mnemonic from saved mnemonic when component mounts
@@ -93,7 +100,11 @@ const ECashWallet = () => {
     if (savedMnemonic && !editableMnemonic) {
       setEditableMnemonic(savedMnemonic);
     }
-  }, [savedMnemonic, editableMnemonic]);
+    // Always expand mnemonic section when mnemonic is empty (first access)
+    if (!editableMnemonic && !savedMnemonic) {
+      setMnemonicCollapsed(false);
+    }
+  }, [savedMnemonic, editableMnemonic, setMnemonicCollapsed]);
 
   if (walletConnected) {
     return null; // Wallet is connected, let MobileLayout handle the UI
@@ -103,19 +114,41 @@ const ECashWallet = () => {
     <div className="ecash-wallet">
 
       <div className="mnemonic-section">
-        <label htmlFor="mnemonic-input">
-          {t('fund.mnemonic')} (12 words):
-        </label>
-        <textarea
-          id="mnemonic-input"
-          value={editableMnemonic}
-          onChange={(e) => setEditableMnemonic(e.target.value)}
-          placeholder={editableMnemonic.trim()
-            ? "Your 12-word mnemonic phrase"
-            : "Your generated mnemonic will appear here"}
-          rows="3"
-          className="mnemonic-input"
-        />
+        <div
+          className="mnemonic-header"
+          onClick={toggleMnemonicCollapsed}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleMnemonicCollapsed();
+            }
+          }}
+          tabIndex={0}
+          role="button"
+          aria-expanded={!mnemonicCollapsed}
+          aria-controls="mnemonic-textarea"
+        >
+          <span className={`triangle ${mnemonicCollapsed ? 'collapsed' : 'expanded'}`}>
+            ▼
+          </span>
+          <span className="mnemonic-title">
+            {t('fund.mnemonic')} <span className="mnemonic-subtitle">(12 words)</span>
+          </span>
+        </div>
+
+        {!mnemonicCollapsed && (
+          <textarea
+            id="mnemonic-textarea"
+            value={editableMnemonic}
+            onChange={(e) => setEditableMnemonic(e.target.value)}
+            placeholder={editableMnemonic.trim()
+              ? "Your 12-word mnemonic phrase"
+              : "Your generated mnemonic will appear here"}
+            rows="3"
+            className="mnemonic-input"
+          />
+        )}
+
         <div className="mnemonic-buttons">
           {!editableMnemonic.trim() ? (
             <button onClick={generateNewMnemonic} className="generate-btn">

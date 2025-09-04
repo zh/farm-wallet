@@ -15,6 +15,62 @@
   margin-bottom: 16px;
 }
 
+/* Mnemonic Header (Collapsible) */
+.mnemonic-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  padding: 8px 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.mnemonic-header:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.mnemonic-header:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.triangle {
+  font-size: 12px;
+  transition: transform 0.2s ease;
+  color: var(--text-secondary);
+  display: inline-block;
+  min-width: 12px;
+}
+
+.triangle.collapsed {
+  transform: rotate(-90deg);
+}
+
+.triangle.expanded {
+  transform: rotate(0deg);
+}
+
+.mnemonic-title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.mnemonic-subtitle {
+  font-weight: 400;
+  color: var(--text-secondary);
+  font-size: 12px;
+  opacity: 0.8;
+}
+
 .mnemonic-section label {
   display: block;
   margin-bottom: 8px;

@@ -126,6 +126,28 @@ export const themeSetterAtom = atom(null, (get, set, newTheme) => {
 });
 themeSetterAtom.debugLabel = 'themeSetterAtom';
 
+// Mnemonic UI state management with localStorage persistence
+const getInitialMnemonicCollapsed = () => {
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem('farm-wallet-mnemonic-collapsed');
+    return saved === 'true'; // Convert string to boolean, default false (expanded)
+  }
+  return false;
+};
+
+const _mnemonicCollapsedAtom = atom(getInitialMnemonicCollapsed());
+
+export const mnemonicCollapsedAtom = atom(
+  (get) => get(_mnemonicCollapsedAtom),
+  (get, set, collapsed) => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('farm-wallet-mnemonic-collapsed', collapsed.toString());
+    }
+    set(_mnemonicCollapsedAtom, collapsed);
+  }
+);
+mnemonicCollapsedAtom.debugLabel = 'mnemonicCollapsedAtom';
+
 // Simplified coin selection strategy - always 'efficient'
 export const coinSelectionStrategyAtom = atom('efficient');
 coinSelectionStrategyAtom.debugLabel = 'coinSelectionStrategyAtom';
