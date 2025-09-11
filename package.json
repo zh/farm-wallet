@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "script": "cp -f ../../minimal-xec-wallet/dist/minimal-xec-wallet.min.js public/"
+    "script": "cp -f ../minimal-xec-wallet/dist/minimal-xec-wallet.min.js public/"
   },
   "dependencies": {
     "@scure/bip39": "^1.5.4",
